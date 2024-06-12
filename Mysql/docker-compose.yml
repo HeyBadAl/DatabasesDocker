@@ -12,6 +12,7 @@ services:
       - MYSQL_DATABASE=mysql
       - MYSQL_USER=mysql
       - MYSQL_PASSWORD=mysql
+    command: ["--pid-file=/var/lib/mysql/mysql.pid"]
     networks:
       - db-network
     healthcheck:
