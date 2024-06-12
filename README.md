@@ -26,7 +26,7 @@ The following services are inclued:
 docker compose up -d
 ```
 
-**To run individual services, navigate to their respective directories and run `docker-compose up -d.`**
+**To run individual services, navigate to their respective directories and run `docker compose up -d.`**
 
 #### Accessing Web Interfaces
 
