@@ -4,22 +4,18 @@ services:
     image: mysql:8.3.0
     restart: always
     volumes:
-      - ./data/mysql:/var/lib/mysql/data
+      - ./data/mysql:/var/lib/mysql
     ports:
       - 3306:3306
     environment:
+      - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=mysql
       - MYSQL_USER=mysql
       - MYSQL_PASSWORD=mysql
-      - MYSQL_ROOT_PASSWORD=root
     networks:
       - db-network
     healthcheck:
-      test:
-        [
-          "CMD-SHELL",
-          "mysqladmin ping -h localhost -u root -p$${MYSQL_ROOT_PASSWORD}",
-        ]
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 30s
       timeout: 10s
       retries: 3
